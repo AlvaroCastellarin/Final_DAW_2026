@@ -1,0 +1,72 @@
+/* =======================================================
+   RESET CSS MODERNO Y LIVIANO
+   ======================================================= */
+
+/* 1. Usar box-sizing: border-box globalmente para que el padding y border no sumen ancho */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Remover márgenes y paddings por defecto del body y la página */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-text-size-adjust: 100%; /* Evita que Safari en iOS escale el texto al girar la pantalla */
+}
+
+/* 3. Normalizar fuentes y legibilidad básica */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; /* Suavizado de tipografías en macOS/iOS */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Remover estilos por defecto en elementos de formulario e interacción */
+
+button,
+textarea,
+select {
+  font: inherit; /* Hereda la tipografía definida en el body */
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* 5. Remover estilos de botones */
+button {
+  cursor: pointer;
+}
+
+/* 6. Quitar estilos por defecto a las listas si en algún momento usás ul/ol */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 7. Quitar formato por defecto a los links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 8. Hacer que las imágenes y elementos multimedia sean responsivos por defecto */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 9. Limpiar bordes por defecto en tablas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

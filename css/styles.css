@@ -1,0 +1,325 @@
+/*  RESET BÁSICO Y VARIABLES GLOBALES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #0B1738;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #ffffff;
+}
+
+/* PANTALLA PRINCIPAL*/
+
+#paginaPrincipal {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+#juego {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.2rem, 2.5vh, 2.2rem);
+}
+
+#tituloPrincial {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+
+#usuario {
+  padding: clamp(0.6rem, 1.2vh, 0.85rem) 1rem;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  outline: none;
+  width: 25vw;
+  min-width: 260px;
+  max-width: 360px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#usuario:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+}
+
+#btnjugar {
+  padding: clamp(0.65rem, 1.4vh, 0.9rem) 0;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  font-weight: 700;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #0B1738;
+  width: 18vw;
+  min-width: 180px;
+  max-width: 260px;
+  transition: transform 0.15s ease, background-color 0.2s;
+}
+
+#btnjugar:hover {
+  transform: scale(1.03);
+  background-color: #f1f5f9;
+}
+
+#btnjugar:active {
+  transform: scale(0.98);
+}
+
+/*TABLA HISTÓRICA*/
+#tablaHistorica {
+  position: absolute;
+  top: 50%;
+  right: clamp(1.5rem, 4vw, 4rem);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tablaHistorica h2 {
+  margin-bottom: clamp(0.6rem, 1vh, 1rem);
+  font-size: clamp(1.05rem, 1.3vw, 1.3rem);
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+#tablaHistorica table {
+  width: 26vw;
+  min-width: 310px;
+  max-width: 420px;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: #101f42;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+#tablaHistorica th {
+  background-color: #1a2b56;
+  color: #38bdf8;
+  padding: clamp(0.6rem, 1.2vh, 0.85rem);
+  font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#tablaHistorica td {
+  padding: clamp(0.5rem, 1vh, 0.75rem);
+  border-bottom: 1px solid #1a2b56;
+  font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+  color: #cbd5e1;
+}
+
+#tablaHistorica tr:last-child td {
+  border-bottom: none;
+}
+
+/* FOOTER*/
+#contacto {
+  position: absolute;
+  bottom: clamp(1rem, 2vh, 1.8rem);
+  left: clamp(1rem, 3vw, 2.5rem);
+}
+
+#contacto a {
+  color: #94a3b8;
+  text-decoration: underline;
+  font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+  transition: color 0.2s ease;
+}
+
+#contacto a:hover {
+  color: #ffffff;
+}
+
+/* PÁGINA DE CONTACTO */
+
+#paginaContacto {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  gap: 1.5rem;
+}
+
+#tituloMensaje {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+#paginaContacto form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+#paginaContacto input,
+#paginaContacto textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #101f42;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+#paginaContacto input::placeholder,
+#paginaContacto textarea::placeholder {
+  color: #94a3b8;
+}
+
+#paginaContacto input:focus,
+#paginaContacto textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+#paginaContacto textarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 220px;
+}
+
+#btnEnviar {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #0B1738;
+  margin-top: 0.5rem;
+  transition: transform 0.15s ease, background-color 0.2s;
+  width: 100%;
+  max-width: 220px;
+}
+
+#btnEnviar:hover {
+  transform: scale(1.03);
+  background-color: #f1f5f9;
+}
+
+#btnEnviar:active {
+  transform: scale(0.98);
+}
+
+/* MEDIA QUERIES */
+
+/* Adaptación para pantallas chicas / ventanas flotantes */
+@media (max-width: 1024px) {
+  #paginaPrincipal {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  #juego {
+    height: auto;
+    width: 100%;
+  }
+
+  #tablaHistorica {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  #tablaHistorica table {
+    width: 100%;
+  }
+
+  #contacto {
+    position: static;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+/* Adaptación para Celulares (iPhone 390px y similares) */
+@media (max-width: 480px) {
+  #paginaPrincipal {
+    padding: 2rem 1rem 1.5rem 1rem;
+    gap: 2rem;
+  }
+
+  #tituloPrincial {
+    font-size: 2.2rem;
+  }
+
+  #usuario {
+    width: 100%;
+    max-width: 260px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  #btnjugar {
+    width: 100%;
+    max-width: 180px;
+    padding: 0.7rem 0;
+    font-size: 1rem;
+  }
+
+  #tablaHistorica {
+    max-width: 100%;
+  }
+
+  #tablaHistorica th, 
+  #tablaHistorica td {
+    padding: 0.55rem 0.4rem;
+  }
+
+  /* Formulario de contacto en 390px */
+  #paginaContacto {
+    height: auto;
+    min-height: 100dvh;
+    padding: 2rem 1.2rem;
+  }
+
+  #tituloMensaje {
+    font-size: 2.1rem;
+  }
+}
