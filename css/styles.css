@@ -35,12 +35,23 @@ body {
 }
 
 #tituloPrincial {
+position: relative; /* Base para posicionar la copa respecto al título */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: clamp(3rem, 6vw, 5.5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  text-align: center;
-  line-height: 1.1;
-  margin-bottom: 0.3rem;
+  line-height: 1;
+}
+
+.copaMundo{
+position: absolute;
+  left: 95%;             /* Ubica la copa inmediatamente a la derecha del texto */
+  height: 1.5em;         /* Se adapta al alto de la fuente */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4));
 }
 
 #usuario {
@@ -87,14 +98,18 @@ body {
 
 /*TABLA HISTÓRICA*/
 #tablaHistorica {
-  position: absolute;
+position: absolute;
+position: absolute;
   top: 50%;
-  right: clamp(1.5rem, 4vw, 4rem);
+  /* Reducimos la distancia respecto al borde derecho a solo 1rem/1.5vw */
+  right: clamp(0.8rem, 1.5vw, 1.5rem); 
   transform: translateY(-50%);
+  
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
 #tablaHistorica h2 {
   margin-bottom: clamp(0.6rem, 1vh, 1rem);
@@ -205,7 +220,7 @@ body {
 
 #paginaContacto input:focus,
 #paginaContacto textarea:focus {
-  border-color: #38bdf8;
+  border-color: #3865f8;
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
 }
 
