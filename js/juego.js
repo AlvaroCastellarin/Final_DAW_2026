@@ -1,22 +1,58 @@
 "use strict";
-
-function Usuario(nombre, partida) {
-    this.nombre = nombre;
-    this.partida = partida;
+var partida = {
+    nombre: "",
+    vidas: 3,
+    inicio: null,
+    fin: null,
+    tiempoTotal: null,
+    contadorPreguntas: 0,
+    contadorCorrectas: 0,
+    puntaje: 0,
+    preguntasRestantes: []
 }
 
-function Partida(preguntasRestantes) {
-    this.vidas = 3;
-    this.inicio = new Date();
-    this.fin = null;
-    this.tiempoTotal = null;
-    this.contadorPreguntas = 0;
-    this.contadorCorrectas = 0;
-    this.puntaje = 0;
-    this.preguntasRestantes = preguntasRestantes;
+function mezclarArray (array){
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temporal = array[i];
+        array[i] = array[j];
+        array[j] = temporal;
+    }
+    return array;
 }
-
-Partida.prototype.finalizar = function () {
-    this.fin = new Date();
-    this.tiempoTotal = this.fin - this.inicio;
-};
+function inciarJuego(partida, bancoPreguntas){
+    partida.preguntasRestantes = bancoPreguntas.slice();
+    mezclarArray(partida.preguntasRestantes);
+    partida.inicio = Date.now();
+}
+function actualizaRestantes(partida){
+    return partida.preguntasRestantes.pop();
+}
+function checkPoint(partida){
+    if ((gameOver(partida.vidas) === false) && (valida3Vidas(partida.vidas) === false)){
+        partida.vidas++;
+    }
+}
+function preguntaRespondida(pregunta, respuestaSeleccionada, tiempoPregunta, partida){
+    if (validaPregunta(pregunta, respuestaSeleccionada)){
+        partida.puntaje = partida.puntaje + 10;
+        partida.contadorCorrectas++;
+        if (validaTiempo5(tiempoPregunta)){
+            partida.puntaje = partida.puntaje + 5;
+        }
+        if (validaTiempo10(tiempoPregunta)){
+            partida.puntaje = partida.puntaje + 2;
+        }
+    }
+    else{
+        partida.vidas--;
+    }
+    partida.contadorPreguntas++;
+    if (validaPreguntasRespondidas(partida.contadorPreguntas)){
+        checkPoint(partida);
+    }
+}
+function finPartida(partida){
+    partida.fin = Date.now();
+    partida.tiempoTotal = partida.fin - partida.inicio;
+}

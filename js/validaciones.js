@@ -1,3 +1,4 @@
+//Validaciones del usuario
 function validaUsuario (usuario){
     if(usuario.length === 0){
         alert("Escriba un nombre para poder jugar");
@@ -10,6 +11,7 @@ function validaUsuario (usuario){
     return true;
 }
 
+//Validaciones del formulario
 function validaFormulario(nombreMensaje, email, asunto, mensaje){
     if (nombreMensaje.length === 0){
         alert("Falta llenar el campo nombre");
@@ -20,6 +22,10 @@ function validaFormulario(nombreMensaje, email, asunto, mensaje){
         return;
     }
     if(asunto.length === 0){
+        alert("Debe llenar el campo asunto");
+        return;
+    }
+    if(mensaje.length === 0){
         alert("Debe llenar el campo mensaje");
         return;
     }
@@ -31,18 +37,49 @@ function validaFormulario(nombreMensaje, email, asunto, mensaje){
         alert("Ingresse un nombre valido");
         return;
     }
-        if (asunto.length < 5){
-        alert("Ingresse un nombre valido");
+        if (asunto.length < 4){
+        alert("Ingresse un asunto valido");
         return;
     }
-    return true;
+    if(mensaje.length < 10){
+        alert("EL mensaje debe tener 10 caracteres o mas");
+        return;
+    }
 }
-
-function validacionVidas(vidasUsuario){
-    if (vidasUsuario === 0){
+//Validaciones del juego
+function gameOver(vidasUsuario){
+        if (vidasUsuario === 0){
         return true;
     }
+    return false;
+}
+function valida3Vidas(vidasUsuario){
     if (vidasUsuario === 3){
+        return true;
+    }
+    return false;
+}
+function validaPregunta(pregunta, respuestaSeleccionada){
+    if(pregunta.correcta === respuestaSeleccionada){
+        return true;
+    }
+    return false;
+}
+function validaTiempo10(tiempo){
+    if(tiempo > 5 && tiempo <= 10){
+        return true;
+    }
+    return false;
+}
+function validaTiempo5(tiempo){
+    if(tiempo <= 5){
+        return true;
+    }
+    return false;
+}
+function validaPreguntasRespondidas(contadorPreguntas){
+    // Verificamos que sea mayor a 0 para no dar una vida extra al iniciar el juego
+    if (contadorPreguntas > 0 && contadorPreguntas % 10 === 0) {
         return true;
     }
     return false;
