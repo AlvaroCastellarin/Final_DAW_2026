@@ -8,32 +8,64 @@
     <title>MundialQuiz</title>
 </head>
 <body id="paginaPrincipal">
-    <div id="juego">
-        <h1 id="tituloPrincial">
-            <span>MundialQuiz</span>
-            <img src="img/copaMundo1.png" alt="copaMundo" class="copaMundo">
-        </h1>
-        <input type="text"  id="usuario" placeholder="Nombre">
-        <button id="btnjugar">Jugar</button>
+    <div id="pantallaPrincipal">
+        <div id="juego">
+            <h1 id="tituloPrincial">
+                <span>MundialQuiz</span>
+                <img src="img/copaMundo1.png" alt="copaMundo" class="copaMundo">
+            </h1>
+            <input type="text"  id="usuario" placeholder="Nombre">
+            <button id="btnjugar">Jugar</button>
+        </div>
+        <div id="tablaHistorica">
+            <h2>Ranking Histórico</h2>
+            <div class="contenedor-scroll-tabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Puntos</th>
+                            <th>Preguntas</th>
+                            <th>Tiempo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                        <!-- Acá vas a insertar los <tr> desde JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <footer id="contacto"><a href="contacto.html">Informanos un error</a></footer>
     </div>
-    <div id="tablaHistorica">
-    <h2>Ranking Histórico</h2>
-    <div class="contenedor-scroll-tabla">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Puntos</th>
-                    <th>Preguntas</th>
-                    <th>Tiempo</th>
-                </tr>
-            </thead>
-            <tbody id="cuerpoTabla">
-                <!-- Acá vas a insertar los <tr> desde JavaScript -->
-            </tbody>
-        </table>
+    <div id="pantallaJuego" class="oculto">
+        <h4 id="vidas"></h4>
+        <h4 id="timer"></h4>
+        <h4 id="puntos"></h4>
+        <div id="preguntaOpciones">
+            <div id="pregunta"></div>
+            <div id="opciones">
+                <button id="op1"></button>
+                <button id="op2"></button>
+                <button id="op3"></button>
+                <button id="op4"></button>
+            </div>
+        </div>
+        <footer id="infoPartida2">
+            <h4 id="nombre"></h4>
+            <h4 id="contadorPreguntas"></h4>
+        </footer>
     </div>
-</div>
-    <footer id="contacto"><a href="contacto.html">Informanos un error</a></footer>
+    <div id="pantallaFin" class="oculto">
+                <div id="resultadoFin">
+            <h2 id="gameOver">Game Over</h2>
+            <p id="mensajeFin">Resumen de la partida:</p>
+            <div id="resumenFin">
+                <p>Puntaje: <span id="puntajeFin"></span></p>
+                <p>Correctas: <span id="correctasFin"></span></p>
+                <p>Tiempo: <span id="tiempoFin"></span></p>
+            </div>
+            <button id="btnAceptar">Aceptar</button>
+        </div>
+    </div>
 </body>
 </html>

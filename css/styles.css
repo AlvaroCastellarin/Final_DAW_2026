@@ -1,340 +1,533 @@
 /*  RESET BÁSICO Y VARIABLES GLOBALES */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html {
-  height: 100%;
-}
+  html {
+    height: 100%;
+  }
 
-body {
-  background-color: #0B1738;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  color: #ffffff;
-}
+  body {
+    background-color: #0B1738;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #ffffff;
+  }
 
+  .oculto{
+    display: none !important;
+  }
 /* PANTALLA PRINCIPAL*/
 
-#paginaPrincipal {
-  width: 100vw;
-  height: 100dvh;
-  overflow: hidden;
-  position: relative;
-}
-
-#juego {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(1.2rem, 2.5vh, 2.2rem);
-}
-
-#tituloPrincial {
-position: relative; /* Base para posicionar la copa respecto al título */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-.copaMundo{
-position: absolute;
-  left: 95%;             /* Ubica la copa inmediatamente a la derecha del texto */
-  height: 1.5em;         /* Se adapta al alto de la fuente */
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4));
-}
-
-#usuario {
-  padding: clamp(0.6rem, 1.2vh, 0.85rem) 1rem;
-  font-size: clamp(1rem, 1.3vw, 1.25rem);
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  text-align: center;
-  outline: none;
-  width: 25vw;
-  min-width: 260px;
-  max-width: 360px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-#usuario:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
-}
-
-#btnjugar {
-  padding: clamp(0.65rem, 1.4vh, 0.9rem) 0;
-  font-size: clamp(1rem, 1.3vw, 1.25rem);
-  font-weight: 700;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #0B1738;
-  width: 18vw;
-  min-width: 180px;
-  max-width: 260px;
-  transition: transform 0.15s ease, background-color 0.2s;
-}
-
-#btnjugar:hover {
-  transform: scale(1.03);
-  background-color: #f1f5f9;
-}
-
-#btnjugar:active {
-  transform: scale(0.98);
-}
-
-/*TABLA HISTÓRICA*/
-#tablaHistorica {
-position: absolute;
-position: absolute;
-  top: 50%;
-  /* Reducimos la distancia respecto al borde derecho a solo 1rem/1.5vw */
-  right: clamp(0.8rem, 1.5vw, 1.5rem); 
-  transform: translateY(-50%);
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-#tablaHistorica h2 {
-  margin-bottom: clamp(0.6rem, 1vh, 1rem);
-  font-size: clamp(1.05rem, 1.3vw, 1.3rem);
-  font-weight: 600;
-  color: #e2e8f0;
-}
-
-#tablaHistorica table {
-  width: 26vw;
-  min-width: 310px;
-  max-width: 420px;
-  border-collapse: collapse;
-  text-align: center;
-  background-color: #101f42;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-}
-
-#tablaHistorica th {
-  background-color: #1a2b56;
-  color: #38bdf8;
-  padding: clamp(0.6rem, 1.2vh, 0.85rem);
-  font-size: clamp(0.8rem, 0.95vw, 0.95rem);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-#tablaHistorica td {
-  padding: clamp(0.5rem, 1vh, 0.75rem);
-  border-bottom: 1px solid #1a2b56;
-  font-size: clamp(0.8rem, 0.9vw, 0.9rem);
-  color: #cbd5e1;
-}
-
-#tablaHistorica tr:last-child td {
-  border-bottom: none;
-}
-
-/* FOOTER*/
-#contacto {
-  position: absolute;
-  bottom: clamp(1rem, 2vh, 1.8rem);
-  left: clamp(1rem, 3vw, 2.5rem);
-}
-
-#contacto a {
-  color: #94a3b8;
-  text-decoration: underline;
-  font-size: clamp(0.8rem, 0.9vw, 0.9rem);
-  transition: color 0.2s ease;
-}
-
-#contacto a:hover {
-  color: #ffffff;
-}
-
-/* PÁGINA DE CONTACTO */
-
-#paginaContacto {
-  width: 100vw;
-  height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  overflow: hidden;
-  gap: 1.5rem;
-}
-
-#tituloMensaje {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 800;
-  text-align: center;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-}
-
-#paginaContacto form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 420px;
-  gap: 1.2rem;
-  align-items: center;
-}
-
-#paginaContacto input,
-#paginaContacto textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
-  border-radius: 8px;
-  border: 1px solid #334155;
-  background-color: #101f42;
-  color: #ffffff;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  font-family: inherit;
-}
-
-#paginaContacto input::placeholder,
-#paginaContacto textarea::placeholder {
-  color: #94a3b8;
-}
-
-#paginaContacto input:focus,
-#paginaContacto textarea:focus {
-  border-color: #3865f8;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
-}
-
-#paginaContacto textarea {
-  resize: vertical;
-  min-height: 120px;
-  max-height: 220px;
-}
-
-#btnEnviar {
-  padding: 0.75rem 2.5rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #0B1738;
-  margin-top: 0.5rem;
-  transition: transform 0.15s ease, background-color 0.2s;
-  width: 100%;
-  max-width: 220px;
-}
-
-#btnEnviar:hover {
-  transform: scale(1.03);
-  background-color: #f1f5f9;
-}
-
-#btnEnviar:active {
-  transform: scale(0.98);
-}
-
-/* MEDIA QUERIES */
-
-/* Adaptación para pantallas chicas / ventanas flotantes */
-@media (max-width: 1024px) {
-  #paginaPrincipal {
-    height: auto;
-    min-height: 100dvh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2.5rem 1.5rem 2rem 1.5rem;
-    gap: 2.5rem;
+  #pantallaPrincipal {
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+    position: relative;
   }
 
   #juego {
-    height: auto;
     width: 100%;
-  }
-
-  #tablaHistorica {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  #tablaHistorica table {
-    width: 100%;
-  }
-
-  #contacto {
-    position: static;
-    margin-top: 1rem;
-    text-align: center;
-  }
-}
-
-/* Adaptación para Celulares (iPhone 390px y similares) */
-@media (max-width: 480px) {
-  #paginaPrincipal {
-    padding: 2rem 1rem 1.5rem 1rem;
-    gap: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(1.2rem, 2.5vh, 2.2rem);
   }
 
   #tituloPrincial {
-    font-size: 2.2rem;
+  position: relative; /* Base para posicionar la copa respecto al título */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .copaMundo{
+  position: absolute;
+    left: 95%; 
+    height: 1.5em;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4));
   }
 
   #usuario {
-    width: 100%;
-    max-width: 260px;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
+    padding: clamp(0.6rem, 1.2vh, 0.85rem) 1rem;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+    outline: none;
+    width: 25vw;
+    min-width: 260px;
+    max-width: 360px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  #usuario:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
   }
 
   #btnjugar {
-    width: 100%;
-    max-width: 180px;
-    padding: 0.7rem 0;
-    font-size: 1rem;
+    padding: clamp(0.65rem, 1.4vh, 0.9rem) 0;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    font-weight: 700;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #0B1738;
+    width: 18vw;
+    min-width: 180px;
+    max-width: 260px;
+    transition: transform 0.15s ease, background-color 0.2s;
   }
 
+  #btnjugar:hover {
+    transform: scale(1.03);
+    background-color: #f1f5f9;
+  }
+
+  #btnjugar:active {
+    transform: scale(0.98);
+  }
+
+  /*TABLA HISTÓRICA*/
   #tablaHistorica {
-    max-width: 100%;
+  position: absolute;
+  position: absolute;
+    top: 50%;
+    right: clamp(0.8rem, 1.5vw, 1.5rem); 
+    transform: translateY(-50%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  #tablaHistorica th, 
+
+  #tablaHistorica h2 {
+    margin-bottom: clamp(0.6rem, 1vh, 1rem);
+    font-size: clamp(1.05rem, 1.3vw, 1.3rem);
+    font-weight: 600;
+    color: #e2e8f0;
+  }
+
+  #tablaHistorica table {
+    width: 26vw;
+    min-width: 310px;
+    max-width: 420px;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: #101f42;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  #tablaHistorica th {
+    background-color: #1a2b56;
+    color: #38bdf8;
+    padding: clamp(0.6rem, 1.2vh, 0.85rem);
+    font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   #tablaHistorica td {
-    padding: 0.55rem 0.4rem;
+    padding: clamp(0.5rem, 1vh, 0.75rem);
+    border-bottom: 1px solid #1a2b56;
+    font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+    color: #cbd5e1;
   }
 
-  /* Formulario de contacto en 390px */
+  #tablaHistorica tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* FOOTER*/
+  #contacto {
+    position: absolute;
+    bottom: clamp(1rem, 2vh, 1.8rem);
+    left: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  #contacto a {
+    color: #94a3b8;
+    text-decoration: underline;
+    font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+    transition: color 0.2s ease;
+  }
+
+  #contacto a:hover {
+    color: #ffffff;
+  }
+
+/* PANTALLA DE JUEGO */
+  #pantallaJuego{
+    display: none;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: clamp(1rem, 2.5vh, 2rem) clamp(1rem, 3vw, 2.5rem);
+  }
+  #infoPartida{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+  }
+  #vidas{
+    flex: 1;
+    text-align: left;
+  }
+  #timer{
+    flex: 1;
+    text-align: center;
+  }
+  #puntos{
+    flex: 1;
+    text-align: right;
+  }
+  #preguntaOpciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vh, 3rem);
+  }
+  #pregunta{
+    min-height: 22vh;
+    width: 40%;
+    min-width: 320px;
+    background-color: #e2e8f0;
+    color: #0B1738;
+    font-weight: 700;
+    padding: 4%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(53, 57, 109, 0.467);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.6rem, 1.2vh, 0.9rem);
+    width: 40%;
+    min-width: 320px;
+  }
+  #op1, #op2 , #op3, #op4{
+    background-color: #e2e8f0;
+    color: #0B1738;
+    font-weight: 500;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(53, 57, 109, 0.467);
+    text-align: center;
+    width: 100%;
+    padding: clamp(0.7rem, 1.4vh, 1rem);
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.2s;
+  }
+  #op1:hover, #op2:hover, #op3:hover, #op4:hover{
+    transform: scale(1.03);
+    background-color: #ffffff;
+  }
+  #infoPartida2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+  }
+
+/* PANTALLA FIN */
+  #pantallaFin{
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #resultadoFin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1rem, 2.5vh, 1.5rem);
+    padding: clamp(2rem, 5vh, 3rem) clamp(1.5rem, 4vw, 3rem);
+  }
+
+  #gameOver{
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  #mensajeFin{
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    color: #cbd5e1;
+  }
+
+  #resumenFin{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #101f42;
+    border-radius: 10px;
+    padding: clamp(1rem, 2vh, 1.5rem) clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    color: #e2e8f0;
+    min-width: 220px;
+  }
+
+  #btnAceptar{
+    padding: clamp(0.65rem, 1.4vh, 0.9rem) clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    font-weight: 700;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #0B1738;
+    transition: transform 0.15s ease, background-color 0.2s;
+  }
+
+  #btnAceptar:hover{
+    transform: scale(1.03);
+    background-color: #f1f5f9;
+  }
+
+  #btnAceptar:active{
+    transform: scale(0.98);
+  }
+/* PÁGINA DE CONTACTO */
+
   #paginaContacto {
-    height: auto;
-    min-height: 100dvh;
-    padding: 2rem 1.2rem;
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    overflow: hidden;
+    gap: 1.5rem;
   }
 
   #tituloMensaje {
-    font-size: 2.1rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    text-align: center;
+    color: #ffffff;
+    letter-spacing: -0.02em;
   }
-}
+
+  #paginaContacto form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  #paginaContacto input,
+  #paginaContacto textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background-color: #101f42;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+
+  #paginaContacto input::placeholder,
+  #paginaContacto textarea::placeholder {
+    color: #94a3b8;
+  }
+
+  #paginaContacto input:focus,
+  #paginaContacto textarea:focus {
+    border-color: #3865f8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+  }
+
+  #paginaContacto textarea {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 220px;
+  }
+
+  #btnEnviar {
+    padding: 0.75rem 2.5rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #0B1738;
+    margin-top: 0.5rem;
+    transition: transform 0.15s ease, background-color 0.2s;
+    width: 100%;
+    max-width: 220px;
+  }
+
+  #btnEnviar:hover {
+    transform: scale(1.03);
+    background-color: #f1f5f9;
+  }
+
+  #btnEnviar:active {
+    transform: scale(0.98);
+  }
+
+/* MEDIA QUERIES */
+
+  /* Adaptación para pantallas chicas / ventanas flotantes */
+  @media (max-width: 1024px) {
+    #pantallaPrincipal {
+      height: auto;
+      min-height: 100dvh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+      gap: 2.5rem;
+    }
+
+    #juego {
+      height: auto;
+      width: 100%;
+    }
+
+    #tablaHistorica {
+      position: static;
+      transform: none;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    #tablaHistorica table {
+      width: 100%;
+    }
+
+    #contacto {
+      position: static;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* PÁGINA DE JUEGO */
+    #pantallaJuego {
+      padding: 1.5rem 1rem;
+    }
+
+    #pregunta,
+    #opciones {
+      width: 70%;
+      min-width: unset;
+    }
+  }
+
+  /* Adaptación para Celulares (iPhone 390px y similares) */
+  @media (max-width: 480px) {
+    #pantallaPrincipal {
+      padding: 2rem 1rem 1.5rem 1rem;
+      gap: 2rem;
+    }
+
+    #tituloPrincial {
+      font-size: 2.2rem;
+    }
+
+    #usuario {
+      width: 100%;
+      max-width: 260px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+    }
+
+    #btnjugar {
+      width: 100%;
+      max-width: 180px;
+      padding: 0.7rem 0;
+      font-size: 1rem;
+    }
+
+    #tablaHistorica {
+      max-width: 100%;
+    }
+
+    #tablaHistorica th,
+    #tablaHistorica td {
+      padding: 0.55rem 0.4rem;
+    }
+
+    /* PÁGINA DE JUEGO en 390px */
+    #pantallaJuego {
+      padding: 1.2rem 0.8rem;
+    }
+
+    #infoPartida,
+    #infoPartida2 {
+      font-size: 0.85rem;
+    }
+
+    #preguntaOpciones {
+      gap: 1.2rem;
+    }
+
+    #pregunta,
+    #opciones {
+      width: 100%;
+      min-width: unset;
+    }
+
+    #pregunta {
+      min-height: 18vh;
+      padding: 5%;
+    }
+
+    #op1, #op2, #op3, #op4 {
+      font-size: 0.9rem;
+      padding: 0.6rem;
+    }
+
+    /* Formulario de contacto en 390px */
+    #paginaContacto {
+      height: auto;
+      min-height: 100dvh;
+      padding: 2rem 1.2rem;
+    }
+
+    #tituloMensaje {
+      font-size: 2.1rem;
+    }
+  }
