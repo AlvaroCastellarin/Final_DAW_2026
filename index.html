@@ -3,34 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/styles.css">
     <title>MundialQuiz</title>
 </head>
 <body id="paginaPrincipal">
-    <div id="juego">
-        <h1 id="tituloPrincial">MundialQuiz</h1>
-        <input type="text"  id="usuario" placeholder="Nombre">
-        <button id="btnjugar">Jugar</button>
+    <div id="pantallaPrincipal">
+        <div id="juego">
+            <h1 id="tituloPrincial">
+                <span>MundialQuiz</span>
+                <img src="img/logo.png" alt="copaMundo" class="copaMundo">
+            </h1>
+            <input type="text"  id="usuario" placeholder="Nombre">
+            <button id="btnjugar" disabled>Jugar</button>
+        </div>
+        <div id="tablaHistorica">
+            <h2>Ranking Histórico</h2>
+            <div class="contenedor-scroll-tabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Puntos</th>
+                            <th>Preguntas</th>
+                            <th>Tiempo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                        <!-- Aca se asignan los <tr> desde JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <footer id="contacto"><button id="btnAbrirContacto">Informanos un error</button></footer>
     </div>
-    <div id="tablaHistorica">
-    <h2>Ranking Histórico</h2>
-    <div class="contenedor-scroll-tabla">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Puntos</th>
-                    <th>Preguntas</th>
-                    <th>Tiempo</th>
-                </tr>
-            </thead>
-            <tbody id="cuerpoTabla">
-                <!-- Acá vas a insertar los <tr> desde JavaScript -->
-            </tbody>
-        </table>
+    <div id="pantallaJuego" class="oculto">
+        <header id="infoPartida">
+            <h4 id="vidas"></h4>
+            <h4 id="timer"></h4>
+            <h4 id="puntos"></h4>
+        </header>
+        <div id="preguntaOpciones">
+            <div id="pregunta"></div>
+            <div id="opciones">
+                <button id="op1"></button>
+                <button id="op2"></button>
+                <button id="op3"></button>
+                <button id="op4"></button>
+            </div>
+        </div>
+        <footer id="infoPartida2">
+            <h4 id="nombre"></h4>
+            <h4 id="contadorPreguntas"></h4>
+        </footer>
     </div>
-</div>
-    <footer id="contacto"><a href="contacto.html">Informanos un error</a></footer>
+    <div id="pantallaFin" class="oculto">
+                <div id="resultadoFin">
+            <h2 id="gameOver">Game Over</h2>
+            <p id="mensajeFin">Resumen de la partida:</p>
+            <div id="resumenFin">
+                <p>Puntaje: <span id="puntajeFin"></span></p>
+                <p>Correctas: <span id="correctasFin"></span></p>
+                <p>Tiempo: <span id="tiempoFin"></span></p>
+                <p id="exito" class="oculto">¡Completaste todas las preguntas posibles!</p>
+            </div>
+            <button id="btnAceptar">Aceptar</button>
+        </div>
+    </div>
+    <div id="modalContacto" class="oculto">
+        <div id="modalContenido">
+            <button id="btnCerrarModal">✕</button>
+            <iframe id="iframeContacto" src="contacto.html"></iframe>
+        </div>
+    </div>
+    <script src="js/datos_preguntas.js"></script>
+    <script src="js/validaciones.js"></script>
+    <script src="js/juego.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/local_storage.js"></script>
+    <script src="js/interfaz.js"></script>
+    <script src="js/principal.js"></script>
 </body>
 </html>
