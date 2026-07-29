@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">
     <title>MundialQuiz</title>
@@ -12,10 +13,10 @@
         <div id="juego">
             <h1 id="tituloPrincial">
                 <span>MundialQuiz</span>
-                <img src="img/copaMundo1.png" alt="copaMundo" class="copaMundo">
+                <img src="img/logo.png" alt="copaMundo" class="copaMundo">
             </h1>
             <input type="text"  id="usuario" placeholder="Nombre">
-            <button id="btnjugar">Jugar</button>
+            <button id="btnjugar" disabled>Jugar</button>
         </div>
         <div id="tablaHistorica">
             <h2>Ranking Histórico</h2>
@@ -30,17 +31,19 @@
                         </tr>
                     </thead>
                     <tbody id="cuerpoTabla">
-                        <!-- Acá vas a insertar los <tr> desde JavaScript -->
+                        <!-- Aca se asignan los <tr> desde JavaScript -->
                     </tbody>
                 </table>
             </div>
         </div>
-        <footer id="contacto"><a href="contacto.html">Informanos un error</a></footer>
+        <footer id="contacto"><button id="btnAbrirContacto">Informanos un error</button></footer>
     </div>
     <div id="pantallaJuego" class="oculto">
-        <h4 id="vidas"></h4>
-        <h4 id="timer"></h4>
-        <h4 id="puntos"></h4>
+        <header id="infoPartida">
+            <h4 id="vidas"></h4>
+            <h4 id="timer"></h4>
+            <h4 id="puntos"></h4>
+        </header>
         <div id="preguntaOpciones">
             <div id="pregunta"></div>
             <div id="opciones">
@@ -67,5 +70,18 @@
             <button id="btnAceptar">Aceptar</button>
         </div>
     </div>
+    <div id="modalContacto" class="oculto">
+        <div id="modalContenido">
+            <button id="btnCerrarModal">✕</button>
+            <iframe id="iframeContacto" src="contacto.html"></iframe>
+        </div>
+    </div>
+    <script src="js/datos_preguntas.js"></script>
+    <script src="js/validaciones.js"></script>
+    <script src="js/juego.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/local_storage.js"></script>
+    <script src="js/interfaz.js"></script>
+    <script src="js/principal.js"></script>
 </body>
 </html>

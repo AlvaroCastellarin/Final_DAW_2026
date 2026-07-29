@@ -1,50 +1,41 @@
 //Validaciones del usuario
 function validaUsuario (usuario){
     if(usuario.length === 0){
-        alert("Escriba un nombre para poder jugar");
-        return;
+        return true;
     }
     if(usuario.length < 3){
-        alert("El nombre debe tener 3 caracteres como minimo");
-        return;
+        return true;
     }
-    return true;
+    return false;
 }
 
 //Validaciones del formulario
 function validaFormulario(nombreMensaje, email, asunto, mensaje){
     if (nombreMensaje.length === 0){
-        alert("Falta llenar el campo nombre");
-        return;
+        return true;
     }
     if(email.length === 0){
-        alert("Falta llenar el campo email");
-        return;
+        return true;
     }
     if(asunto.length === 0){
-        alert("Debe llenar el campo asunto");
-        return;
+        return true;
     }
     if(mensaje.length === 0){
-        alert("Debe llenar el campo mensaje");
-        return;
+        return true;
     }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-        alert("Debe ingresar un mail valido");
-        return;
+        return true;
     }
     if (nombreMensaje.length < 3){
-        alert("Ingresse un nombre valido");
-        return;
+        return true;
     }
-        if (asunto.length < 4){
-        alert("Ingresse un asunto valido");
-        return;
+        if (asunto.length < 3){
+        return true;
     }
-    if(mensaje.length < 10){
-        alert("EL mensaje debe tener 10 caracteres o mas");
-        return;
+    if(mensaje.length < 5){
+        return true;
     }
+    return false;
 }
 //Validaciones del juego
 function gameOver(vidasUsuario){

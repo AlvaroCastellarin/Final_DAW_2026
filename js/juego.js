@@ -1,4 +1,5 @@
 "use strict";
+
 var partida = {
     nombre: "",
     vidas: 3,
