@@ -29,14 +29,19 @@
 
   #pantallaPrincipal {
     width: 100vw;
-    height: 100dvh;
-    overflow: hidden;
+    min-height: 100dvh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    padding: clamp(1.5rem, 4vh, 3rem);
     position: relative;
   }
 
   #juego {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,12 +113,6 @@
 
   /*TABLA HISTÓRICA*/
   #tablaHistorica {
-  position: absolute;
-  position: absolute;
-    top: 50%;
-    right: clamp(0.8rem, 1.5vw, 1.5rem); 
-    transform: translateY(-50%);
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -261,6 +260,36 @@
   #op1:hover, #op2:hover, #op3:hover, #op4:hover{
     transform: scale(1.03);
     background-color: #ffffff;
+  }
+  #op1.correcto, #op2.correcto, #op3.correcto, #op4.correcto{
+    background-color: #009127;
+    color: #e2e8f0;
+    font-weight: 500;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(53, 57, 109, 0.467);
+    text-align: center;
+    width: 100%;
+    padding: clamp(0.7rem, 1.4vh, 1rem);
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.2s;
+  }
+  #op1.incorrecto, #op2.incorrecto, #op3.incorrecto, #op4.incorrecto{
+    background-color: #910000;
+    color: #e2e8f0;
+    font-weight: 500;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(53, 57, 109, 0.467);
+    text-align: center;
+    width: 100%;
+    padding: clamp(0.7rem, 1.4vh, 1rem);
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.2s;
   }
   #infoPartida2{
     display: flex;
@@ -468,22 +497,12 @@
       height: auto;
       min-height: 100dvh;
       overflow-y: auto;
-      display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
       padding: 2.5rem 1.5rem 2rem 1.5rem;
       gap: 2.5rem;
     }
 
-    #juego {
-      height: auto;
-      width: 100%;
-    }
-
     #tablaHistorica {
-      position: static;
-      transform: none;
       width: 100%;
       max-width: 400px;
     }

@@ -39,7 +39,13 @@ function validaFormulario(nombreMensaje, email, asunto, mensaje){
 }
 //Validaciones del juego
 function gameOver(vidasUsuario){
-        if (vidasUsuario === 0){
+        if (vidasUsuario <= 0){
+        return true;
+    }
+    return false;
+}
+function finPreguntas(preguntasRestantes){
+    if(preguntasRestantes.length === 0){
         return true;
     }
     return false;

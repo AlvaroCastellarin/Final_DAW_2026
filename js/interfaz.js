@@ -5,6 +5,7 @@ function rellenarTabla(){
     var i;
     var partida;
     var fila;
+    cuerpoTabla.innerHTML = "";
     if(historial.length === 0){
         return;
     }
@@ -89,6 +90,7 @@ function mostrarPregunta(preguntaRecibida){
     op2.textContent = preguntaRecibida.opciones[1];
     op3.textContent = preguntaRecibida.opciones[2];
     op4.textContent = preguntaRecibida.opciones[3];
+    return preguntaRecibida;
 }
 
 //Pantalla Fin
@@ -96,10 +98,21 @@ function mostrarPregunta(preguntaRecibida){
 var puntajeFin = document.getElementById("puntajeFin");
 var correctasFin = document.getElementById("correctasFin");
 var tiempoFin = document.getElementById("tiempoFin");
+var exito = document.getElementById("exito");
+var tituloFin = document.getElementById("gameOver");
+var textoMensajeFin = document.getElementById("mensajeFin");
 
 function rellenarFin(partida){
     puntajeFin.textContent = partida.puntaje;
     var rellenarContador = `${partida.contadorCorrectas}/${partida.contadorPreguntas}`;
     correctasFin.innerHTML = rellenarContador;
     tiempoFin.textContent = formatearTiempo(partida.tiempoTotal);
+    if (finPreguntas(partida.preguntasRestantes)){
+        tituloFin.textContent = "¡Victoria!";
+        textoMensajeFin.textContent = "¡Completaste todo el banco de preguntas!";
+        exito.classList.remove('oculto');
+    } else {
+        tituloFin.textContent = "Game Over";
+        textoMensajeFin.textContent = "Te quedaste sin vidas.";
+    }
 }

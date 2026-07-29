@@ -21,7 +21,14 @@ function mezclarArray (array){
     }
     return array;
 }
-function inciarJuego(partida, bancoPreguntas){
+function inciarJuego(partida, bancoPreguntas, nombre){
+    partida.nombre = nombre;
+    partida.vidas = 3;
+    partida.fin = null;
+    partida.tiempoTotal = null;
+    partida.contadorPreguntas = 0;
+    partida.contadorCorrectas = 0;
+    partida.puntaje = 0;
     partida.preguntasRestantes = bancoPreguntas.slice();
     mezclarArray(partida.preguntasRestantes);
     partida.inicio = Date.now();
@@ -35,7 +42,8 @@ function checkPoint(partida){
     }
 }
 function preguntaRespondida(pregunta, respuestaSeleccionada, tiempoPregunta, partida){
-    if (validaPregunta(pregunta, respuestaSeleccionada)){
+    var esCorrecta = validaPregunta(pregunta, respuestaSeleccionada);
+    if (esCorrecta){
         partida.puntaje = partida.puntaje + 10;
         partida.contadorCorrectas++;
         if (validaTiempo5(tiempoPregunta)){
@@ -52,6 +60,7 @@ function preguntaRespondida(pregunta, respuestaSeleccionada, tiempoPregunta, par
     if (validaPreguntasRespondidas(partida.contadorPreguntas)){
         checkPoint(partida);
     }
+    return esCorrecta;
 }
 function finPartida(partida){
     partida.fin = Date.now();
