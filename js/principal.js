@@ -30,6 +30,18 @@ silbato.addEventListener('ended', function(){
     reproducirMusica(hinchada);
 });
 
+var btnSonido = document.getElementById("btnSonido");
+var todosLosAudios = [cancionInicio, silbato, hinchada, gol, uhhhh, pitazoFinal];
+var sonidoActivado = true;
+
+btnSonido.addEventListener("click", function(){
+    sonidoActivado = !sonidoActivado;
+    for (var i = 0; i < todosLosAudios.length; i++) {
+        todosLosAudios[i].muted = !sonidoActivado;
+    }
+    btnSonido.textContent = sonidoActivado ? "🔊" : "🔇";
+});
+
 //Pantalla Princiapl
 document.addEventListener('DOMContentLoaded', function(){
     rellenarTabla();
