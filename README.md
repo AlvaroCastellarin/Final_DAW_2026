@@ -35,11 +35,8 @@ El detalle completo de las reglas (vidas, puntaje, bonus, checkpoint, ranking) e
 
 ## Cómo ejecutarlo
 
-No requiere instalación ni build. Basta con clonar el repositorio y abrir `index.html` directamente en el navegador:
-
-```bash
-git clone https://github.com/AlvaroCastellarin/Final_DAW_2026.git
-```
+No requiere instalación ni build. Solo abrir el siguente link:
+https://alvarocastellarin.github.io/MundialQuiz/
 
 ## Estructura del proyecto
 
