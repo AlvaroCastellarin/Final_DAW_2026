@@ -2,7 +2,7 @@
 
 Juego de trivia sobre la historia de los Mundiales de fútbol, desarrollado como Proyecto Final de la materia Desarrollo y Arquitecturas Web (UAI, 2026). Construido con HTML5, CSS3 y JavaScript ES5 puro, sin frameworks ni librerías externas.
 
-Repositorio: https://github.com/AlvaroCastellarin/Final_DAW_2026
+Repositorio: https://github.com/AlvaroCastellarin/MundialQuiz
 
 ## Funcionalidades
 
