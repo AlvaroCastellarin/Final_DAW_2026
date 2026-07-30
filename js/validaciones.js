@@ -29,7 +29,7 @@ function validaFormulario(nombreMensaje, email, asunto, mensaje){
     if (nombreMensaje.length < 3){
         return true;
     }
-        if (asunto.length < 3){
+    if (asunto.length < 3){
         return true;
     }
     if(mensaje.length < 5){

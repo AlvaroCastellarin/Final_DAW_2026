@@ -326,6 +326,10 @@
     cursor: pointer;
     transition: transform 0.15s ease, background-color 0.2s;
   }
+  #op1.seleccionadoTeclado, #op2.seleccionadoTeclado, #op3.seleccionadoTeclado, #op4.seleccionadoTeclado{
+    outline: 3px solid #38bdf8;
+    outline-offset: 2px;
+  }
   #infoPartida2{
     display: flex;
     flex-direction: row;
