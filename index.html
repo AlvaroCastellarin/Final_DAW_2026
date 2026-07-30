@@ -10,33 +10,39 @@
 </head>
 <body id="paginaPrincipal">
     <div id="pantallaPrincipal">
-        <div id="juego">
-            <h1 id="tituloPrincial">
-                <span>MundialQuiz</span>
-                <img src="img/logo.png" alt="copaMundo" class="copaMundo">
-            </h1>
-            <input type="text"  id="usuario" placeholder="Nombre">
-            <button id="btnjugar" disabled>Jugar</button>
-        </div>
-        <div id="tablaHistorica">
-            <h2>Ranking Histórico</h2>
-            <div class="contenedor-scroll-tabla">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Puntos</th>
-                            <th>Preguntas</th>
-                            <th>Tiempo</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpoTabla">
-                        <!-- Aca se asignan los <tr> desde JavaScript -->
-                    </tbody>
-                </table>
+        <div id="contenidoPrincipal">
+            <div id="juego">
+                <h1 id="tituloPrincial">
+                    <span>MundialQuiz</span>
+                    <img src="img/logo.png" alt="copaMundo" class="copaMundo">
+                </h1>
+                <input type="text"  id="usuario" placeholder="Nombre">
+                <button id="btnjugar" disabled>Jugar</button>
+            </div>
+            <div id="tablaHistorica">
+                <h2>Ranking Histórico</h2>
+                <div class="contenedor-scroll-tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Puntos</th>
+                                <th>Preguntas</th>
+                                <th>Tiempo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpoTabla">
+                            <!-- Aca se asignan los <tr> desde JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="btnBorrarRanking">Borrar datos</button>
             </div>
         </div>
-        <footer id="contacto"><button id="btnAbrirContacto">Informanos un error</button></footer>
+        <footer id="contacto">
+            <button id="btnAbrirContacto">Informanos un error</button>
+            <button id="btnAbrirInstrucciones">¿Cómo se juega?</button>
+        </footer>
     </div>
     <div id="pantallaJuego" class="oculto">
         <header id="infoPartida">
@@ -72,9 +78,15 @@
         </div>
     </div>
     <div id="modalContacto" class="oculto">
-        <div id="modalContenido">
-            <button id="btnCerrarModal">✕</button>
-            <iframe id="iframeContacto" src="contacto.html"></iframe>
+        <div class="modalContenido">
+            <button id="btnCerrarModalContacto" class="btnCerrarModal">✕</button>
+            <iframe class="iframeModal" src="contacto.html"></iframe>
+        </div>
+    </div>
+    <div id="modalInstrucciones" class="oculto">
+        <div class="modalContenido">
+            <button id="btnCerrarModalInstrucciones" class="btnCerrarModal">✕</button>
+            <iframe class="iframeModal" src="instrucciones.html"></iframe>
         </div>
     </div>
     <script src="js/datos_preguntas.js"></script>

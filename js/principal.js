@@ -9,6 +9,7 @@ var pantallaJuego = document.getElementById("pantallaJuego");
 var pantallaFin = document.getElementById("pantallaFin");
 var usuario = document.getElementById("usuario");
 var btnJugar = document.getElementById("btnjugar");
+var btnBorrarRanking = document.getElementById("btnBorrarRanking");
 var cancionInicio = new Audio('sounds/cancionInicio.mp3');
 var silbato = new Audio('sounds/silbato.mp3');
 var hinchada = new Audio('sounds/hinchada.mp3');
@@ -33,6 +34,11 @@ silbato.addEventListener('ended', function(){
 document.addEventListener('DOMContentLoaded', function(){
     rellenarTabla();
     reproducirMusica(cancionInicio)
+})
+
+btnBorrarRanking.addEventListener("click", function(){
+    borrarRanking();
+    rellenarTabla();
 })
 
 usuario.addEventListener("input", function(){
