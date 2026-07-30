@@ -64,12 +64,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: clamp(2rem, 8vw, 10rem);
   }
 
   #juego {
-    margin-left: clamp(1rem, 19vw, 22rem);
-    margin-right: clamp(2rem, 6vw, 6rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,19 +129,12 @@
     transition: transform 0.15s ease, background-color 0.2s;
   }
 
-  #btnjugar:hover {
-    transform: scale(1.03);
-    background-color: #f1f5f9;
-  }
-
   #btnjugar:active {
     transform: scale(0.98);
   }
 
   /*TABLA HISTÓRICA*/
   #tablaHistorica {
-    margin-left: auto;
-    margin-right: clamp(2rem, 6vw, 6rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -206,10 +198,6 @@
     font-size: clamp(0.8rem, 0.9vw, 0.9rem);
     cursor: pointer;
     transition: color 0.2s ease;
-  }
-
-  #btnAbrirContacto:hover, #btnAbrirInstrucciones:hover, #btnBorrarRanking:hover {
-    color: #ffffff;
   }
 
   #btnBorrarRanking {
@@ -291,10 +279,6 @@
     font-size: clamp(0.95rem, 1.1vw, 1.1rem);
     cursor: pointer;
     transition: transform 0.15s ease, background-color 0.2s;
-  }
-  #op1:hover, #op2:hover, #op3:hover, #op4:hover{
-    transform: scale(1.03);
-    background-color: #ffffff;
   }
   #op1.correcto, #op2.correcto, #op3.correcto, #op4.correcto{
     background-color: #009127;
@@ -390,11 +374,6 @@
     background-color: #ffffff;
     color: #0B1738;
     transition: transform 0.15s ease, background-color 0.2s;
-  }
-
-  #btnAceptar:hover{
-    transform: scale(1.03);
-    background-color: #f1f5f9;
   }
 
   #btnAceptar:active{
@@ -519,11 +498,6 @@
     max-width: 220px;
   }
 
-  #btnEnviar:hover {
-    transform: scale(1.03);
-    background-color: #f1f5f9;
-  }
-
   #btnEnviar:active {
     transform: scale(0.98);
   }
@@ -595,8 +569,35 @@
     transition: color 0.2s ease;
   }
 
-  #volverInicio:hover {
-    color: #ffffff;
+/* EFECTOS HOVER (solo para dispositivos con mouse, evita que queden "pegados" en touch) */
+  @media (hover: hover) and (pointer: fine) {
+    #btnjugar:hover {
+      transform: scale(1.03);
+      background-color: #f1f5f9;
+    }
+
+    #btnAbrirContacto:hover, #btnAbrirInstrucciones:hover, #btnBorrarRanking:hover {
+      color: #ffffff;
+    }
+
+    #op1:hover, #op2:hover, #op3:hover, #op4:hover {
+      transform: scale(1.03);
+      background-color: #ffffff;
+    }
+
+    #btnAceptar:hover {
+      transform: scale(1.03);
+      background-color: #f1f5f9;
+    }
+
+    #btnEnviar:hover {
+      transform: scale(1.03);
+      background-color: #f1f5f9;
+    }
+
+    #volverInicio:hover {
+      color: #ffffff;
+    }
   }
 
 /* MEDIA QUERIES */

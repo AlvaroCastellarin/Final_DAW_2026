@@ -33,8 +33,15 @@ silbato.addEventListener('ended', function(){
 //Pantalla Princiapl
 document.addEventListener('DOMContentLoaded', function(){
     rellenarTabla();
-    reproducirMusica(cancionInicio)
 })
+
+function iniciarMusicaPrimeraInteraccion(){
+    reproducirMusica(cancionInicio);
+    document.removeEventListener('click', iniciarMusicaPrimeraInteraccion);
+    document.removeEventListener('keydown', iniciarMusicaPrimeraInteraccion);
+}
+document.addEventListener('click', iniciarMusicaPrimeraInteraccion);
+document.addEventListener('keydown', iniciarMusicaPrimeraInteraccion);
 
 btnBorrarRanking.addEventListener("click", function(){
     borrarRanking();
@@ -50,6 +57,19 @@ usuario.addEventListener("input", function(){
         btnJugar.disabled = true;
     }
 })
+document.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') {
+        return;
+    }
+    if (pantallaPrincipal.classList.contains('oculto')) {
+        return;
+    }
+    if (btnJugar.disabled) {
+        return;
+    }
+    btnJugar.click();
+});
+
 btnJugar.addEventListener("click", function(){
     detenerMusica(cancionInicio);
     ocultar(pantallaPrincipal);
@@ -185,6 +205,16 @@ op4.addEventListener("click", function(){opcion(op4, 3);})
 
 var btnAceptar = document.getElementById("btnAceptar");
 var exito = document.getElementById("exito");
+
+document.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') {
+        return;
+    }
+    if (pantallaFin.classList.contains('oculto')) {
+        return;
+    }
+    btnAceptar.click();
+});
 
 btnAceptar.addEventListener("click", function(){
     guardarPartida(partida);
