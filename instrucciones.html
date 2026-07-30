@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>MundialQuiz - Instrucciones</title>
+</head>
+<body id="paginaInstrucciones">
+    <div id="contenedorInstrucciones">
+        <h1 id="tituloInstrucciones">Cómo se juega</h1>
+
+        <section class="bloqueInstrucciones">
+            <h2>Objetivo</h2>
+            <p>Respondé preguntas de trivia sobre la historia de los Mundiales de fútbol. Cada partida mezcla al azar el banco completo de preguntas, así que el orden nunca se repite.</p>
+        </section>
+
+        <section class="bloqueInstrucciones">
+            <h2>Vidas</h2>
+            <p>Arrancás con 3 vidas. Cada respuesta incorrecta te resta una. Si llegás a 0 vidas, termina la partida.</p>
+        </section>
+
+        <section class="bloqueInstrucciones">
+            <h2>Puntaje y bonus por rapidez</h2>
+            <ul>
+                <li>Cada respuesta correcta suma <strong>10 puntos</strong>.</li>
+                <li>Si respondés en <strong>5 segundos o menos</strong>, sumás <strong>5 puntos extra</strong> (15 en total).</li>
+                <li>Si respondés entre <strong>6 y 10 segundos</strong>, sumás <strong>2 puntos extra</strong> (12 en total).</li>
+                <li>Pasados los 10 segundos, la respuesta correcta suma solo los 10 puntos base.</li>
+            </ul>
+        </section>
+
+        <section class="bloqueInstrucciones">
+            <h2>Checkpoint cada 10 preguntas</h2>
+            <p>Cada 10 preguntas respondidas (sin importar si fueron correctas o no), si te faltaba alguna vida, recuperás 1 — hasta un máximo de 3. Si ya llegaste a 0 vidas antes de esa marca, la partida ya terminó y el checkpoint no aplica.</p>
+        </section>
+
+        <section class="bloqueInstrucciones">
+            <h2>Condición de victoria</h2>
+            <p>Ganás si contestás el banco de preguntas completo sin quedarte sin vidas. Como el banco es grande, lograrlo es todo un desafío.</p>
+        </section>
+
+        <section class="bloqueInstrucciones">
+            <h2>Ranking</h2>
+            <p>Al terminar cada partida (ganes o pierdas), tu resultado se guarda en el ranking de esta computadora, con un cupo de hasta 10 lugares. Si volvés a jugar con el mismo nombre, tu registro se actualiza solo si el puntaje nuevo es mejor que el anterior — nunca se duplica.</p>
+            <p>El orden del ranking se decide así, de mayor a menor prioridad:</p>
+            <ol>
+                <li>Mayor puntaje.</li>
+                <li>Menor cantidad de respuestas erradas.</li>
+                <li>Menor tiempo total de partida.</li>
+            </ol>
+        </section>
+
+        <a id="volverInicio" href="index.html">Volver al inicio</a>
+    </div>
+</body>
+</html>

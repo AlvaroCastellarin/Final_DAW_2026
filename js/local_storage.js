@@ -44,3 +44,7 @@ function guardarPartida(partida){
     historial = historial.slice(0, 10);
     localStorage.setItem('rankingMundialQuiz', JSON.stringify(historial));
 }
+
+function borrarRanking(){
+    localStorage.removeItem('rankingMundialQuiz');
+}
